@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0">
+    <scr:component name="com.adobe.ams.kalyanar.samples.impl.WebConsolePlugin">
+        <implementation class="com.adobe.ams.kalyanar.samples.impl.WebConsolePlugin"/>
+        <service servicefactory="false">
+            <provide interface="java.io.Serializable"/>
+            <provide interface="javax.servlet.Servlet"/>
+            <provide interface="javax.servlet.ServletConfig"/>
+        </service>
+        <property name="felix.webconsole.label" value="build modified pages and assets package"/>
+        <property name="felix.webconsole.title" value="build modified pages and assets package"/>
+        <property name="felix.webconsole.category" value="Sling"/>
+        <property name="service.pid" value="com.adobe.ams.kalyanar.samples.impl.WebConsolePlugin"/>
+        <reference name="resourceResolverFactory" interface="org.apache.sling.api.resource.ResourceResolverFactory" cardinality="1..1" policy="static" bind="bindResourceResolverFactory" unbind="unbindResourceResolverFactory"/>
+        <reference name="packaging" interface="com.day.jcr.vault.packaging.Packaging" cardinality="1..1" policy="static" bind="bindPackaging" unbind="unbindPackaging"/>
+    </scr:component>
+</components>

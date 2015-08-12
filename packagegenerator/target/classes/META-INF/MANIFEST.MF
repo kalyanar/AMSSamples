@@ -1,0 +1,46 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1439392036840
+Build-Jdk: 1.8.0_51
+Built-By: kalyanar
+Bundle-Description: Samples for AMS clients
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: AMS - Kalyanar - Samples
+Bundle-SymbolicName: com.adobe.ams.kalyanar.samples.ams-kalyanar-samples
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.adobe.ams.kalyanar.stats.userstats;version="1.0.2"
+Import-Package: com.adobe.ams.kalyanar.stats.userstats;version="[1.0,2)"
+ ,com.day.cq.dam.api;version="[1.7,2)",com.day.cq.replication;version="[
+ 5.17,6)",com.day.cq.wcm.api;version="[1.9,2)",com.day.jcr.vault.fs.api;
+ version="[2.4,3)",com.day.jcr.vault.fs.config;version="[2.4,3)",com.day
+ .jcr.vault.packaging;version="[2.4,3)",com.day.jcr.vault.util;version="
+ [2.4,3)",com.google.common.collect;version="[15.0,16)",javax.jcr;versio
+ n="[2.0,3)",javax.servlet,javax.servlet.http,org.apache.sling.api.resou
+ rce;version="[2.1,3)",org.osgi.framework;version="[1.5,2)",org.osgi.ser
+ vice.component;version="[1.1,2)",org.osgi.service.event;version="[1.2,2
+ )",org.slf4j;version="[1.7,2)"
+Provide-Capability: osgi.service;effective:=active;objectClass="com.adob
+ e.ams.kalyanar.stats.userstats.impl.ConcurrentUserStatsRegisterService"
+ ,osgi.service;effective:=active;objectClass:List<String>="org.osgi.serv
+ ice.event.EventHandler,com.adobe.ams.kalyanar.stats.userstats.ResetUser
+ Stats";service.description="User login logout handler.";event.filter="(
+ resourceType=rep:Token)",osgi.service;effective:=active;objectClass="co
+ m.adobe.ams.kalyanar.stats.userstats.ConcurrentUserStats",osgi.service;
+ effective:=active;objectClass:List<String>="java.io.Serializable,javax.
+ servlet.Servlet,javax.servlet.ServletConfig";felix.webconsole.label="bu
+ ild modified pages and assets package";felix.webconsole.title="build mo
+ dified pages and assets package";felix.webconsole.category=Sling
+Require-Capability: osgi.service;effective:=active;filter:="(objectClass
+ =com.adobe.ams.kalyanar.stats.userstats.ConcurrentUserStats)",osgi.serv
+ ice;effective:=active;filter:="(objectClass=com.adobe.ams.kalyanar.stat
+ s.userstats.ResetUserStats)",osgi.service;effective:=active;filter:="(o
+ bjectClass=org.apache.sling.api.resource.ResourceResolverFactory)",osgi
+ .service;effective:=active;filter:="(objectClass=com.day.jcr.vault.pack
+ aging.Packaging)",osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+Service-Component: OSGI-INF/com.adobe.ams.kalyanar.stats.userstats.impl.
+ ConcurrentUserStatsImpl.xml,OSGI-INF/com.adobe.ams.kalyanar.samples.imp
+ l.WebConsolePlugin.xml,OSGI-INF/com.adobe.ams.kalyanar.stats.userstats.
+ impl.ConcurrentUserStatsRegisterService.xml,OSGI-INF/com.adobe.ams.kaly
+ anar.stats.userstats.impl.UserLoginLogoutEventHandler.xml
+Tool: Bnd-2.3.0.201405100607

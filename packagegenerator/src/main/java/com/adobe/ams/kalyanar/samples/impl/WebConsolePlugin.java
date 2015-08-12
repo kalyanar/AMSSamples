@@ -12,7 +12,6 @@ import com.day.jcr.vault.packaging.JcrPackageManager;
 import com.day.jcr.vault.packaging.PackageException;
 import com.day.jcr.vault.packaging.Packaging;
 import com.day.jcr.vault.util.Text;
-import org.apache.commons.lang.StringUtils;
 import org.apache.felix.scr.annotations.*;
 import org.apache.felix.scr.annotations.Properties;
 import org.apache.sling.api.resource.LoginException;
@@ -94,7 +93,7 @@ public class WebConsolePlugin extends HttpServlet{
     }
 
     private boolean isSuccessBuildingPackage(String packagePath){
-        if (StringUtils.isNotEmpty(packagePath)){
+        if (packagePath!=null && !"".equals(packagePath)){
             return true;
         }
         return false;

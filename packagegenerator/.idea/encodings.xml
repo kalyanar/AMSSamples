@@ -3,5 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/adobe/ams/kalyanar/samples/impl/WebConsolePlugin.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/adobe/ams/kalyanar/stats/userstats/impl" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/adobe/ams/kalyanar/stats/userstats/package-info.java" charset="windows-1252" />
   </component>
 </project>

@@ -64,18 +64,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>uber-jar</artifactId>
-            <version>6.1.0</version>
-            <classifier>obfuscated-apis</classifier>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
-        </dependency>
-        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
@@ -123,6 +111,15 @@
             <version>1.7.6</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>uber-jar</artifactId>
+            <version>6.1.0</version>
+            <classifier>obfuscated-apis</classifier>
+            <scope>provided</scope>
+        </dependency>
+
+
     </dependencies>
     <profiles>
         <profile>

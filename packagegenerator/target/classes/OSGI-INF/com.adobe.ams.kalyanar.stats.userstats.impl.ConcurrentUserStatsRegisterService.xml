@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="User Stats MBean register service" activate="activate">
+        <implementation class="com.adobe.ams.kalyanar.stats.userstats.impl.ConcurrentUserStatsRegisterService"/>
+        <service servicefactory="false">
+            <provide interface="com.adobe.ams.kalyanar.stats.userstats.impl.ConcurrentUserStatsRegisterService"/>
+        </service>
+        <property name="service.pid" value="User Stats MBean register service"/>
+        <reference name="concurrentUserStats" interface="com.adobe.ams.kalyanar.stats.userstats.ConcurrentUserStats" cardinality="1..1" policy="static" bind="bindConcurrentUserStats" unbind="unbindConcurrentUserStats"/>
+        <reference name="resetUserStats" interface="com.adobe.ams.kalyanar.stats.userstats.ResetUserStats" cardinality="1..1" policy="static" bind="bindResetUserStats" unbind="unbindResetUserStats"/>
+    </scr:component>
+</components>

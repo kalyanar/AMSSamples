@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1439444481964
+Bnd-LastModified: 1439484999000
 Build-Jdk: 1.8.0_51
 Built-By: kalyanar
 Bundle-Description: Samples for AMS clients
@@ -23,15 +23,15 @@ Import-Package: com.adobe.ams.kalyanar.stats.userstats;version="[1.0,2)"
  rvice.event;version="[1.2,2)",org.slf4j;version="[1.7,2)"
 Provide-Capability: osgi.service;effective:=active;objectClass="com.adob
  e.ams.kalyanar.stats.userstats.impl.ConcurrentUserStatsRegisterService"
- ,osgi.service;effective:=active;objectClass:List<String>="org.osgi.serv
- ice.event.EventHandler,com.adobe.ams.kalyanar.stats.userstats.ResetUser
- Stats";service.description="User login logout handler.";event.filter="(
- resourceType=rep:Token)",osgi.service;effective:=active;objectClass="co
- m.adobe.ams.kalyanar.stats.userstats.ConcurrentUserStats",osgi.service;
- effective:=active;objectClass:List<String>="java.io.Serializable,javax.
- servlet.Servlet,javax.servlet.ServletConfig";felix.webconsole.label="bu
- ild modified pages and assets package";felix.webconsole.title="build mo
- dified pages and assets package";felix.webconsole.category=Sling
+ ,osgi.service;effective:=active;objectClass="com.adobe.ams.kalyanar.sta
+ ts.userstats.ConcurrentUserStats",osgi.service;effective:=active;object
+ Class:List<String>="java.io.Serializable,javax.servlet.Servlet,javax.se
+ rvlet.ServletConfig";felix.webconsole.label="build modified pages and a
+ ssets package";felix.webconsole.title="build modified pages and assets 
+ package";felix.webconsole.category=Sling,osgi.service;effective:=active
+ ;objectClass:List<String>="org.osgi.service.event.EventHandler,com.adob
+ e.ams.kalyanar.stats.userstats.ResetUserStats";service.description="Use
+ r login logout handler."
 Require-Capability: osgi.service;effective:=active;filter:="(objectClass
  =com.adobe.ams.kalyanar.stats.userstats.ConcurrentUserStats)",osgi.serv
  ice;effective:=active;filter:="(objectClass=com.adobe.ams.kalyanar.stat

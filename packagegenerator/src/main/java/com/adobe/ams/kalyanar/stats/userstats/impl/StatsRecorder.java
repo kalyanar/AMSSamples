@@ -14,9 +14,16 @@ public class StatsRecorder {
     /** Measured value per second over the last minute. This is a circular buffer */
     private final long[] valuePerSecond = new long[60];
 
+    /** Measured value per minute over the last hour. */
+    private final long[] valuePerMinute = new long[60];
+
+    /** Measured value per hour over the last 8 hours. */
+    private final long[] valuePerHour = new long[ 8];
 
 
     private int seconds = 0;
+    private int minutes  = 0;
+    private int hours = 0;
 
     private final ConcurrentUserStats concurrentUserStats;
 
@@ -34,11 +41,25 @@ public class StatsRecorder {
     public synchronized long[] getValuePerSecond() {
         return cyclicCopyFrom(valuePerSecond, seconds);
     }
+    public synchronized long[] getValuePerMinute() {
+        return cyclicCopyFrom(valuePerMinute, minutes);
+    }
+    public synchronized long[] getValuePerHourPastEightHour() {
+        return cyclicCopyFrom(valuePerHour, hours);
+    }
 
     public synchronized void recordOneSecond() {
             valuePerSecond[seconds++] = concurrentUserStats.getConcurrentUserCount();
         if (seconds == valuePerSecond.length) {
             seconds = 0;
+            valuePerMinute[minutes++]=average(valuePerSecond);
+        }
+        if (minutes == valuePerMinute.length) {
+            minutes = 0;
+            valuePerHour[hours++] = average(valuePerMinute);
+        }
+        if (hours == valuePerHour.length) {
+            hours = 0;
         }
     }
 
@@ -56,5 +77,19 @@ public class StatsRecorder {
             reverse[i] = array[(pos + i) % array.length];
         }
         return reverse;
+    }
+    /**
+     * Returns the average of all entries in the given array.
+     *
+     * @param array array to be summed
+     * @return sum of entries
+     */
+    private long average(long[] array) {
+        long sum = 0;
+        for (int i = 0; i < array.length; i++) {
+
+            sum += array[i];
+        }
+        return sum / array.length;
     }
 }

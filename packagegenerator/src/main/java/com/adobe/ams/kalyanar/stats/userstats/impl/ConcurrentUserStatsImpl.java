@@ -22,14 +22,16 @@ import java.util.concurrent.atomic.AtomicLong;
 public class ConcurrentUserStatsImpl implements ConcurrentUserStats{
     /** Value */
     private final AtomicLong userStatsEachSecond = new AtomicLong();
+    /** Value */
+    private final AtomicLong userStatsEachMinute = new AtomicLong();
 
     public long getConcurrentUserCount() {
         return userStatsEachSecond.get();
     }
-    public void incrementByOne(){
+    public void incrementSecByOne(){
         userStatsEachSecond.incrementAndGet();
     }
-    public void decrementByOne(){
+    public void decrementSecByOne(){
         userStatsEachSecond.decrementAndGet();
     }
 

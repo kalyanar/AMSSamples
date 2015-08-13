@@ -53,7 +53,7 @@ public class UserLoginLogoutEventHandler implements EventHandler,ResetUserStats 
                 Set<String> tokens = getTokens(authorizableId);
                 tokens.add(tokenName);
                 if(!users.containsKey(authorizableId)){
-                    concurrentUserStats.incrementByOne();
+                    concurrentUserStats.incrementSecByOne();
                 }
                 users.put(authorizableId,tokens);
             }else if(SlingConstants.TOPIC_RESOURCE_REMOVED.equals(eventTopic)){
@@ -61,7 +61,7 @@ public class UserLoginLogoutEventHandler implements EventHandler,ResetUserStats 
                 tokens.remove(tokenName);
                 if(tokens.size()==0){
                     users.remove(authorizableId);
-                    concurrentUserStats.decrementByOne();
+                    concurrentUserStats.decrementSecByOne();
                 }
             }
         } catch (LoginException e) {

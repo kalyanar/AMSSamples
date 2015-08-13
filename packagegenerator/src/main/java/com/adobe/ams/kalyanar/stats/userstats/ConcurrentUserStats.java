@@ -5,7 +5,7 @@ package com.adobe.ams.kalyanar.stats.userstats;
  */
 public interface ConcurrentUserStats {
     long getConcurrentUserCount();
-    void incrementByOne();
-    void decrementByOne();
+    void incrementSecByOne();
+    void decrementSecByOne();
     void reset();
 }

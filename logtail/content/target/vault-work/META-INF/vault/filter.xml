@@ -3,5 +3,7 @@
     <filter root="/apps/ams-tools">
         <exclude pattern=".*/clientlibs/css/generated" />
     </filter>
-    <filter root="/etc/ams-tools"/>
+    <filter root="/etc/ams-tools" />
+    <filter root="/etc/clientlibs/ams-tools" />
+    <filter root="/apps/cq/core/content/nav/tools/ams-tools" />
 </workspaceFilter>

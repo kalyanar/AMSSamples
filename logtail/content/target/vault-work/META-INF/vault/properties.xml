@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>AMS Tools Package</comment>
+<entry key="createdBy">kalyanar</entry>
+<entry key="name">ams-tools-content</entry>
+<entry key="created">2015-09-01T15:29:10.040+0530</entry>
+<entry key="groupId">com.adobe.ams</entry>
+<entry key="version">0.0.1-SNAPSHOT</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="group">adobe/consulting</entry>
+<entry key="description">Maven Multimodule project for tools created for AMS.</entry>
+<entry key="artifactId">ams-tools-content</entry>
+<entry key="path">/etc/packages/adobe/consulting/ams-tools-content.zip</entry>
+</properties>

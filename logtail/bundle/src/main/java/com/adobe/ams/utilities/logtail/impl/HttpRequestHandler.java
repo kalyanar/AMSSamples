@@ -15,7 +15,7 @@ public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequ
         String uri = fullHttpRequest.getUri();
         if(uri.startsWith("/ws")&&uri.length()>3){
 
-            AttributeKey<String> attr = AttributeKey.newInstance("logfilepath");
+            AttributeKey<String> attr = AttributeKey.valueOf("logfilepath");
             channelHandlerContext.channel().attr(attr).set(uri.substring(3));
             channelHandlerContext.fireChannelRead(fullHttpRequest.retain());
         }

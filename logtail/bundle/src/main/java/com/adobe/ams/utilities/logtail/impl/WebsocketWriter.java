@@ -3,6 +3,7 @@ package com.adobe.ams.utilities.logtail.impl;
 import io.netty.channel.Channel;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
+import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.util.concurrent.ImmediateEventExecutor;
 
 /**
@@ -19,7 +20,7 @@ public class WebsocketWriter implements LogWriter,WebsocketChannelGroup {
 
     @Override
     public void writeAndFlush(String line) {
-        channelGroup.writeAndFlush(line);
+        channelGroup.writeAndFlush(new TextWebSocketFrame(line));
     }
 
     @Override

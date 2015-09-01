@@ -3,6 +3,6 @@
     jcr:description="Tail any log file"
     jcr:primaryType="nt:unstructured"
     jcr:title="Log Tail"
-    href="/etc/ams-tools/logtail.html"
-    id="ams-tools-logtail"
+    href="/etc/ams-tools/log-tail.html"
+    id="ams-tools-log-tail"
     target="_blank"/>

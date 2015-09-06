@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="com.adobe.ams.utilities.logtail.impl.LogBroadcastServer" activate="activate" deactivate="deactivate">
+        <implementation class="com.adobe.ams.utilities.logtail.impl.LogBroadcastServer"/>
+        <service servicefactory="false">
+            <provide interface="com.adobe.ams.utilities.logtail.impl.LogBroadcastServer"/>
+        </service>
+        <property name="service.pid" value="com.adobe.ams.utilities.logtail.impl.LogBroadcastServer"/>
+        <reference name="logTailManager" interface="com.adobe.ams.utilities.logtail.impl.LogTailManager" cardinality="1..1" policy="static" bind="bindLogTailManager" unbind="unbindLogTailManager"/>
+    </scr:component>
+</components>

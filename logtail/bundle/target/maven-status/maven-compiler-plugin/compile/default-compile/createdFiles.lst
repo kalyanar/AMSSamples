@@ -1,0 +1,12 @@
+com\adobe\ams\utilities\logtail\impl\LogTail.class
+com\adobe\ams\utilities\logtail\impl\LogBroadcastPipelineInitializer.class
+com\adobe\ams\utilities\logtail\impl\ConsoleWriter.class
+com\adobe\ams\utilities\logtail\impl\WebsocketWriter.class
+com\adobe\ams\utilities\logtail\impl\HttpRequestHandler.class
+com\adobe\ams\utilities\logtail\impl\LogTailManagerImpl.class
+com\adobe\ams\utilities\logtail\impl\LogBroadcastServer.class
+com\adobe\ams\utilities\logtail\impl\LogTail$STATE.class
+com\adobe\ams\utilities\logtail\impl\LogWriter.class
+com\adobe\ams\utilities\logtail\impl\LogTailManager.class
+com\adobe\ams\utilities\logtail\impl\WebsocketServerSuccessHandler.class
+com\adobe\ams\utilities\logtail\impl\WebsocketChannelGroup.class

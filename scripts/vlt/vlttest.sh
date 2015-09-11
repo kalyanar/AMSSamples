@@ -6,15 +6,18 @@ sourcepwd="admin"
 targetserverip=localhost
 targetserverport=4503
 targetuser=admin
-#targetpwd=y~oHo<-1y71C
-#urlencoded password
 targetauth="admin:admin"
+#In the rcp.properties set the content paths. Each path will be copied over in a separate child background process. 
+#This is done so that , we can have parallel vlt push to the server , there by saving some time.
+#A batch save value of 100 is optimal. Also set some throttle value of 10 ms when migrating pages.
+#As always stop workflows before the operation and start those back after completing this.
+#run this as a bckground process "sh vlttest.sh &"
 sourcepaths=($(cat ./rcp.properties|sed -n -e '/^sourcecontentpath/p'))
 targetpaths=($(cat rcp.properties| sed -n -e '/^targetcontentpath/p'))
 today=$(date +'%d-%m-%Y')
 logfilepath=logs/import_${today}.log
+#set the vlt in the path
 export PATH=$PATH:/home/kalyanar/vault-cli-3.1.16/bin
-#echo $logfilepath
 echo "started at: $(date)" > $logfilepath
 pidarr=()
 for i in "${!sourcepaths[@]}"
@@ -30,6 +33,8 @@ target="http://$targetauth@$targetserverip:$targetserverport/crx/-/jcr:root${tar
 pidarr+=($!)
 
   done
+  #wait for all the vlt process to complete 
 wait ${pidarr[@]}
+#once all child processes are complete, end this operation.
 echo "ended at: $(date)" >> $logfilepath;
 exit 0

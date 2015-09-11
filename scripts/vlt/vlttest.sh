@@ -2,13 +2,13 @@
 sourceserverip=localhost
 sourceserverport=4502
 sourceuser=admin
-sourcepwd="(%40APr3P0d%23)"
-targetserverip=52.69.196.150
-targetserverport=4502
+sourcepwd="admin"
+targetserverip=localhost
+targetserverport=4503
 targetuser=admin
 #targetpwd=y~oHo<-1y71C
 #urlencoded password
-targetauth="admin:y~oHo%3C-1y71C"
+targetauth="admin:admin"
 sourcepaths=($(cat ./rcp.properties|sed -n -e '/^sourcecontentpath/p'))
 targetpaths=($(cat rcp.properties| sed -n -e '/^targetcontentpath/p'))
 today=$(date +'%d-%m-%Y')

@@ -17,7 +17,7 @@ targetpaths=($(cat rcp.properties| sed -n -e '/^targetcontentpath/p'))
 today=$(date +'%d-%m-%Y')
 logfilepath=logs/import_${today}.log
 #set the vlt in the path
-export PATH=$PATH:/home/kalyanar/vault-cli-3.1.16/bin
+export PATH=$PATH:/usr/local/vault/bin
 echo "started at: $(date)" > $logfilepath
 pidarr=()
 for i in "${!sourcepaths[@]}"

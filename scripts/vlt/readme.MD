@@ -18,4 +18,5 @@ suppose import_11-09-2015.log  is the log file.
 
 cat logs/import_11-09-2015.log | grep "ERROR" | awk '{print $7 $8}' | sort -u | awk -F ':' '{print $1 "\t" $2}'
 
-
+NOTE:
+Copy over your vault to /usr/local/vault . The vlt executable should be at /usr/local/vault/bin

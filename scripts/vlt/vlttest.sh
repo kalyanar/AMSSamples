@@ -2,12 +2,12 @@
 sourceserverip=localhost
 sourceserverport=4502
 sourceuser=admin
-sourcepwd="(%40APr3P0d%23)"
+sourcepwd="admin"
 targetserverip=52.69.196.150
 targetserverport=4502
 targetuser=admin
-targetpwd="y~oHo<-1y71C"
-targetauth="admin:y~oHo%3C-1y71C"
+targetpwd="admin"
+targetauth="admin:admin"
 wf=''
 #workflows to be disabled
 wfstobedisabled=($(cat ./rcp.properties| tr -d '\r'|sed -n -e '/^workflow/p'))

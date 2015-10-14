@@ -16,7 +16,7 @@ if [ "$OPLOG" = "yes" ]; then
     OPT="$OPT --oplog"
 fi
 #create the required directories
-mkdir -p $BACKUPDIR/{daily} || echo 'failed to create directories'
+mkdir -p $BACKUPDIR/daily || echo 'failed to create directories'
 # IO redirection for logging
 touch $LOGFILE
 exec 6>&1 #stdout saved
@@ -48,6 +48,14 @@ echo "file compressed. Removing the folder"
 rm -rf "$1"
 return 0
 }
+uploadtoS3(){
+tarsuffix=".zip"
+dir=$(dirname $1)
+file=$(basename $1)
+cd "$dir" && aws s3 mv $file$tarsuffix s3://$S3_BUCKET/$ARCHIVE_FOLDER/$file$tarsuffix
+echo "successfully uploaded"
+return 0
+}
 if [ "$DBHOST" = "localhost" -o "$DBHOST" = "127.0.0.1" ]; then
     HOST=`hostname`
     if [ "$SOCKET" ]; then
@@ -73,8 +81,8 @@ echo Daily Backup of All Databases is about to run.
 echo
 echo
 FILE="$BACKUPDIR/daily/$DATE.$DOW"
-echo $FILE
-backupmongo $FILE && compressbackupfile $FILE
+mkdir -p $FILE
+backupmongo $FILE && compressbackupfile $FILE && uploadtoS3 $FILE
 echo ======================================================================
 echo Backup End Time `date`
 echo ======================================================================

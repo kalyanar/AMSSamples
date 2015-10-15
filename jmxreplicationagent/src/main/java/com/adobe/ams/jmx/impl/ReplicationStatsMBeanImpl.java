@@ -61,7 +61,7 @@ public class ReplicationStatsMBeanImpl implements ReplicationStatsMBean {
         Agent agent = agentManager.getAgents().get(replicationAgentName);
         if(agent.getQueue().entries().size()>0){
            ReplicationQueue.Entry entry = agent.getQueue().entries().get(0);
-           String id = entry.getId();
+
             try {
                 Thread.sleep(10000);                 //1000 milliseconds is
                 // one second.
@@ -69,7 +69,10 @@ public class ReplicationStatsMBeanImpl implements ReplicationStatsMBean {
                 Thread.currentThread().interrupt();
             }
             if(agent.getQueue().entries().size()>0){
-                if(id.equals(agent.getQueue().entries().get(0).getId())){
+                ReplicationQueue.Entry newEntry = agent.getQueue().entries()
+                        .get(0);
+                if((entry.getId().equals(newEntry.getId()))&&(entry
+                        .getLastProcessTime().equals(newEntry.getLastProcessTime()))){
                     return false;
                 }
                 return true;

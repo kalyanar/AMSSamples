@@ -2,10 +2,10 @@ create a logs folder underthis.
 in rcp.properties , add the various content paths in the following format.
 
 
-sourcecontentpath=/content/geometrixx/en=1
-targetcontentpath=/content/geometrixx_en=1
-sourcecontentpath_1=/content/geometrixx/fr=2
-targetcontentpath_1=/content/geometrixx_fr1=2
+sourcecontentpath=/content/geometrixx/en
+targetcontentpath=/content/geometrixx_en
+sourcecontentpath_1=/content/geometrixx/fr
+targetcontentpath_1=/content/geometrixx_fr1
 
 Each of this will run in parallel.
 

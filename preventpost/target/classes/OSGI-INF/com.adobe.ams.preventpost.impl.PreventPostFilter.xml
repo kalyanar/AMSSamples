@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0">
+    <scr:component name="com.adobe.ams.preventpost.impl.PreventPostFilter">
+        <implementation class="com.adobe.ams.preventpost.impl.PreventPostFilter"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Filter"/>
+        </service>
+        <property name="service.description" value="PreventPostFilter"/>
+        <property name="service.vendor" value="Adobe"/>
+        <property name="pattern" value="/system1/console/.*"/>
+        <property name="service.ranking" type="Integer" value="-2147483648"/>
+        <property name="service.pid" value="com.adobe.ams.preventpost.impl.PreventPostFilter"/>
+        <reference name="authenticationSupport" interface="org.apache.sling.auth.core.AuthenticationSupport" cardinality="1..1" policy="static" bind="bindAuthenticationSupport" unbind="unbindAuthenticationSupport"/>
+    </scr:component>
+</components>

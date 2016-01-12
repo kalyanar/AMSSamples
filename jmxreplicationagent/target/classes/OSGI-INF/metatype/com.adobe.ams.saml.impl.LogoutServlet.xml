@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/com.adobe.ams.saml.impl.LogoutServlet">
+    <OCD id="com.adobe.ams.saml.impl.LogoutServlet" name="%com.adobe.ams.saml.impl.LogoutServlet.name" description="%com.adobe.ams.saml.impl.LogoutServlet.description">
+        <AD id="sling.servlet.methods" type="String" default="GET,POST" name="%com.adobe.ams.saml.impl.LogoutServlet.sling.servlet.methods.name" description="%com.adobe.ams.saml.impl.LogoutServlet.sling.servlet.methods.description" cardinality="2147483647"/>
+        <AD id="pattern" type="String" default="/services/volvo/platform/service/logoutservice*" name="%com.adobe.ams.saml.impl.LogoutServlet.pattern.name" description="%com.adobe.ams.saml.impl.LogoutServlet.pattern.description"/>
+        <AD id="sling.filter.scope" type="String" default="request" name="%com.adobe.ams.saml.impl.LogoutServlet.sling.filter.scope.name" description="%com.adobe.ams.saml.impl.LogoutServlet.sling.filter.scope.description"/>
+        <AD id="sling.servlet.paths" type="String" default="/services/volvo/platform/service/logoutservice" name="%com.adobe.ams.saml.impl.LogoutServlet.sling.servlet.paths.name" description="%com.adobe.ams.saml.impl.LogoutServlet.sling.servlet.paths.description"/>
+    </OCD>
+    <Designate pid="com.adobe.ams.saml.impl.LogoutServlet">
+        <Object ocdref="com.adobe.ams.saml.impl.LogoutServlet"/>
+    </Designate>
+</metatype:MetaData>

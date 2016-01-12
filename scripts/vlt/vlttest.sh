@@ -8,11 +8,22 @@ targetserverport=4502
 targetuser=admin
 targetpwd="admin"
 targetauth="admin:admin"
+#    * <xmp>
+#    * | Pattern        | Matches
+#    * | /foo           | exactly "/foo"
+#    * | /foo.*         | all paths starting with "/foo"
+#    * | ^.* /foo[^/]*$ | all files starting with "foo"
+#    * | /foo/[^/]*$    | all direct children of /foo
+#   * | /foo/.*        | all children of /foo
+#   * | /foo(/.*)?     | all children of /foo and foo itself
+#    * </xmp>
+#
 wf=''
 #workflows to be disabled
 wfstobedisabled=($(cat ./rcp.properties| tr -d '\r'|sed -n -e '/^workflow/p'))
 sourcepaths=($(cat ./rcp.properties| tr -d '\r'|sed -n -e '/^sourcecontentpath/p'))
 targetpaths=($(cat rcp.properties| tr -d '\r'| sed -n -e '/^targetcontentpath/p'))
+excludepaths=($(cat ./rcp.properties| tr -d '\r'|sed -n -e '/^excludepath/p'))
 today=$(date +'%d-%m-%Y-%H-%M-%S')
 logfilepath=logs/vltsync_${today}.log
 export PATH=$PATH:/home/kalyanar/vault-cli-3.1.16/bin
@@ -41,9 +52,10 @@ do
   :
   IFS='=' read -a sourcepath <<< "${sourcepaths[$i]}"
   IFS='=' read -a targetpath <<< "${targetpaths[$i]}"
+  IFS='=' read -a excludepath <<< "${excludepaths[$i]}"
   source="http://$sourceuser:$sourcepwd@$sourceserverip:$sourceserverport/crx/-/jcr:root${sourcepath[1]}"
    target="http://$targetauth@$targetserverip:$targetserverport/crx/-/jcr:root${targetpath[1]}"
-   vlt rcp -r -b 100  -n $source $target  |tee -a $logfilepath >> $logfilepath &
+   vlt rcp -r -b 100 -e excludepath  -n $source $target  |tee -a $logfilepath >> $logfilepath &
 pidarr+=($!)   
 done
 wait ${pidarr[@]}

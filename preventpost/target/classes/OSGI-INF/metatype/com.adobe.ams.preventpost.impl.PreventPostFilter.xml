@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/com.adobe.ams.preventpost.impl.PreventPostFilter">
+    <OCD id="com.adobe.ams.preventpost.impl.PreventPostFilter" name="%com.adobe.ams.preventpost.impl.PreventPostFilter.name" description="%com.adobe.ams.preventpost.impl.PreventPostFilter.description">
+        <AD id="pattern" type="String" default="/system1/console/.*" name="%com.adobe.ams.preventpost.impl.PreventPostFilter.pattern.name" description="%com.adobe.ams.preventpost.impl.PreventPostFilter.pattern.description"/>
+    </OCD>
+    <Designate pid="com.adobe.ams.preventpost.impl.PreventPostFilter" factoryPid="com.adobe.ams.preventpost.impl.PreventPostFilter">
+        <Object ocdref="com.adobe.ams.preventpost.impl.PreventPostFilter"/>
+    </Designate>
+</metatype:MetaData>

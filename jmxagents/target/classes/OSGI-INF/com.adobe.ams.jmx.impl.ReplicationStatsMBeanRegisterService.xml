@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="Replication Stats MBean register service" activate="activate">
+        <implementation class="com.adobe.ams.jmx.impl.ReplicationStatsMBeanRegisterService"/>
+        <service servicefactory="false">
+            <provide interface="com.adobe.ams.jmx.impl.ReplicationStatsMBeanRegisterService"/>
+        </service>
+        <property name="service.pid" value="Replication Stats MBean register service"/>
+        <reference name="agentManager" interface="com.day.cq.replication.AgentManager" cardinality="1..1" policy="static" bind="bindAgentManager" unbind="unbindAgentManager"/>
+    </scr:component>
+</components>

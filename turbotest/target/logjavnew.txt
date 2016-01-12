@@ -1,0 +1,4 @@
+Uploading a new object to S3 from a file
+
+Uploaded a new object to S3 from a file in 
+3207445 milliseconds

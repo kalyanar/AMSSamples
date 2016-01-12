@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/logtail/content/target/classes" />
+    <output-test url="file://$MODULE_DIR$/logtail/content/target/test-classes" />
+    <content url="file://$MODULE_DIR$/logtail/content">
+      <sourceFolder url="file://$MODULE_DIR$/logtail/content/src/main/content/jcr_root" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/logtail/content/src/main/content/META-INF/vault/definition" type="java-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/logtail/content/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="ams-tools-bundle" />
+  </component>
+</module>

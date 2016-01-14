@@ -32,7 +32,7 @@ import java.util.Map;
 @Properties( {
         @Property(name = Constants.SERVICE_DESCRIPTION, value = "PreventPostFilter"),
         @Property(name = Constants.SERVICE_VENDOR, value = "Adobe"),
-=\
+
         @Property(name = "pattern", value = "/system1/console/.*"
                 ),
         @Property(name = Constants.SERVICE_RANKING, intValue = Integer.MIN_VALUE)

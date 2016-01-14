@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.adobe.ams.kalyanar</groupId>
-    <artifactId>ams-kalyanar-packagegenerator</artifactId>
+    <groupId>com.adobe.ams</groupId>
+    <artifactId>ams-packagegenerator</artifactId>
     <packaging>bundle</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <name>AMS - Kalyanar - Package generator</name>
+    <version>1.0</version>
+    <name>AMS - Package generator</name>
     <description>Package generator for  packaging modified nodes</description>
     <licenses>
         <license>
@@ -103,6 +103,12 @@
             <groupId>biz.aQute</groupId>
             <artifactId>bndlib</artifactId>
             <version>1.43.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

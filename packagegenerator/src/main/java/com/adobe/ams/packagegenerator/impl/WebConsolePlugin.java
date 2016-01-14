@@ -1,4 +1,4 @@
-package com.adobe.ams.kalyanar.packagegenerator.impl;
+package com.adobe.ams.packagegenerator.impl;
 
 import com.day.cq.dam.api.Asset;
 import com.day.cq.replication.ReplicationStatus;

@@ -107,7 +107,7 @@ public class PackageDownloadServlet extends SlingSafeMethodsServlet {
             PackageException {
         JcrPackageManager packageManager = getPackageManager(resourceResolver);
 
-        packageManager.listPackages()
+
         JcrPackage jcrPackage=packageManager.create("activatetree",
                 fileSuffix
         );

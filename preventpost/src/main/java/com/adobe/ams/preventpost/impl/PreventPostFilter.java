@@ -38,7 +38,7 @@ import java.util.Set;
         @Property(name = Constants.SERVICE_DESCRIPTION, value = "PreventPostFilter"),
         @Property(name = Constants.SERVICE_VENDOR, value = "Adobe"),
 
-        @Property(name = "pattern", value = "/system1/console/.*"
+        @Property(name = "pattern", value = "/system/console/.*"
                 ),
         @Property(name = Constants.SERVICE_RANKING, intValue = Integer.MIN_VALUE)
 
@@ -47,7 +47,7 @@ public class PreventPostFilter implements Filter {
 
     private static final Logger log = LoggerFactory
             .getLogger(PreventPostFilter.class);
-    /* Search Paths */
+
     private static final String[] DEFAULT_ALLOWED_USERS = {"admin"};
     @Property(
             label = "Users allowed to post",

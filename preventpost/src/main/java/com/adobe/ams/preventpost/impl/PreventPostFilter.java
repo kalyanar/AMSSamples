@@ -10,8 +10,11 @@ import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.apache.sling.api.wrappers.SlingHttpServletRequestWrapper;
 import org.apache.sling.auth.core.AuthenticationSupport;
+import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.osgi.framework.Constants;
 import org.osgi.service.http.HttpContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.*;
 import javax.servlet.http.Cookie;
@@ -21,7 +24,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by kalyanar on 16/10/15.
@@ -39,6 +44,19 @@ import java.util.Map;
 
 })
 public class PreventPostFilter implements Filter {
+
+    private static final Logger log = LoggerFactory
+            .getLogger(PreventPostFilter.class);
+    /* Search Paths */
+    private static final String[] DEFAULT_ALLOWED_USERS = {"admin"};
+    @Property(
+            label = "Users allowed to post",
+            description = "List of users allowed to post to this path pattern",
+            cardinality = Integer.MAX_VALUE)
+    private static final String PROP_USERS_LIST = "users";
+
+    private Set<String> users = new HashSet<String>();
+
     @Reference
     private  AuthenticationSupport authenticationSupport;
 
@@ -72,7 +90,7 @@ public class PreventPostFilter implements Filter {
                     userId=  resourceResolver.getUserID();
                 }
 
-                if("admin".equals(userId)){
+                if(users.contains(userId)){
                     chain.doFilter(request,response);
                 }
                 else {
@@ -140,4 +158,15 @@ public class PreventPostFilter implements Filter {
         }
     }
 
+    @Activate
+    private void activate(Map<String, Object> props) {
+      configurePathMap(PropertiesUtil.toStringArray(props.get
+                (PROP_USERS_LIST),DEFAULT_ALLOWED_USERS));
+    }
+    private void configurePathMap(String[] usersArray){
+        users = new HashSet<String>();
+        for(String user:usersArray){
+            users.add(user);
+        }
+    }
 }

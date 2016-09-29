@@ -1,7 +1,6 @@
 create a logs folder underthis.
 in rcp.properties , add the various content paths in the following format.
 
-
 sourcecontentpath=/content/geometrixx/en
 targetcontentpath=/content/geometrixx_en
 sourcecontentpath_1=/content/geometrixx/fr
